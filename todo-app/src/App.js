@@ -169,7 +169,7 @@ function App() {
                                 {todo.dueDate &&
                                     new Date(todo.dueDate) <= new Date() && (
                                         <div className="overdue">
-                                            Overdue since {todo.dueDate}
+                                            Due {todo.dueDate} - Overdue
                                         </div>
                                     )}
                             </div>
