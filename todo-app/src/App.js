@@ -137,15 +137,6 @@ function App() {
                         }`}
                         key={todo.id}
                     >
-                        <div className="title-container">{todo.title}</div>
-                        {todo.dueDate &&
-                            new Date(todo.dueDate) > new Date() && (
-                                <div className="due-soon">Due soon!</div>
-                            )}
-                        {todo.dueDate &&
-                            new Date(todo.dueDate) <= new Date() && (
-                                <div className="overdue">Overdue!</div>
-                            )}
                         {editTodo && editTodo.id === todo.id ? (
                             <input
                                 type="text"
@@ -158,7 +149,21 @@ function App() {
                                 }
                             />
                         ) : (
-                            <div className="title-container">{todo.title}</div>
+                            <div className="title-container">
+                                {todo.dueDate &&
+                                    new Date(todo.dueDate) > new Date() && (
+                                        <div className="due-soon">
+                                            Due {todo.dueDate} - Soon!
+                                        </div>
+                                    )}
+                                {todo.dueDate &&
+                                    new Date(todo.dueDate) <= new Date() && (
+                                        <div className="overdue">
+                                            Overdue since {todo.dueDate}!
+                                        </div>
+                                    )}
+                                {todo.title}
+                            </div>
                         )}
                         <div className="actions-container">
                             {todo.completed ? (
