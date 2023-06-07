@@ -15,10 +15,11 @@ function markAsUncompleted(todo) {
     };
 }
 
-function createTodo(title, dueDate) {
+function createTodo(title, dueDate, description) {
     return {
         id: Date.now(),
         title,
+        description,
         completed: false,
         dueDate,
     };
@@ -46,6 +47,7 @@ function App() {
     const todosPerPage = 10;
     const [newDueDate, setNewDueDate] = useState('');
     const dueSoonDate = 2 * 24 * 60 * 60 * 1000;
+    const [newDescription, setNewDescription] = useState('');
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
@@ -92,10 +94,11 @@ function App() {
     };
 
     const addTodo = () => {
-        const todo = createTodo(newTodo, newDueDate);
+        const todo = createTodo(newTodo, newDueDate, newDescription);
         setTodos([todo, ...todos]);
         setNewTodo('');
         setNewDueDate('');
+        setNewDescription('');
     };
 
     const prevPage = () => {
@@ -120,6 +123,11 @@ function App() {
                     value={newTodo}
                     onChange={(e) => setNewTodo(e.target.value)}
                     placeholder="Add new todo"
+                />
+                <textarea
+                    value={newDescription}
+                    onChange={(e) => setNewDescription(e.target.value)}
+                    placeholder="Add description"
                 />
                 <input
                     type="date"
@@ -151,6 +159,9 @@ function App() {
                         ) : (
                             <div className="title-container">
                                 {todo.title}
+                                <p className="description">
+                                    {todo.description}
+                                </p>
                                 {todo.dueDate &&
                                     new Date(todo.dueDate) - new Date() >
                                         dueSoonDate && (
