@@ -45,6 +45,7 @@ function App() {
     const [editTodo, setEditTodo] = useState(null);
     const todosPerPage = 10;
     const [newDueDate, setNewDueDate] = useState('');
+    const dueSoonDate = 2 * 24 * 60 * 60 * 1000;
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
@@ -149,10 +150,20 @@ function App() {
                             />
                         ) : (
                             <div className="title-container">
+                                {todo.title}
                                 {todo.dueDate &&
+                                    new Date(todo.dueDate) - new Date() >
+                                        dueSoonDate && (
+                                        <div className="due">
+                                            Due {todo.dueDate}
+                                        </div>
+                                    )}
+                                {todo.dueDate &&
+                                    new Date(todo.dueDate) - new Date() <=
+                                        dueSoonDate &&
                                     new Date(todo.dueDate) > new Date() && (
                                         <div className="due-soon">
-                                            Due {todo.dueDate}
+                                            Due {todo.dueDate} - Soon
                                         </div>
                                     )}
                                 {todo.dueDate &&
@@ -161,7 +172,6 @@ function App() {
                                             Overdue since {todo.dueDate}
                                         </div>
                                     )}
-                                {todo.title}
                             </div>
                         )}
                         <div className="actions-container">
