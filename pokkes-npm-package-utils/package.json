@@ -1,0 +1,11 @@
+{
+    "name": "pokkes-npm-package-utils",
+    "version": "1.0.3",
+    "description": "Markera klart/oklart samt hantera tillägg av nya todos",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "pokke",
+    "license": "ISC"
+}

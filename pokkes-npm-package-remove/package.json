@@ -1,0 +1,14 @@
+{
+    "name": "pokkes-npm-package-remove",
+    "version": "1.0.5",
+    "description": "Remove functions",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "pokke",
+    "license": "ISC",
+    "dependencies": {
+        "pokkes-npm-package-utils": "^1.0.3"
+    }
+}

@@ -1,0 +1,111 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    box-sizing: border-box;
+    background: #f6f6f6;
+}
+
+.title {
+    color: #333;
+    margin-bottom: 2em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+input {
+    padding: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #669c64;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.todo-item .title-container {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.todo-item .actions-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.todo-item.completed {
+    color: #4d4c4c;
+    background-color: #be503c;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.add-todo-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.remove-container button,
+.remove-completed-button {
+    background-color: darkred;
+}
+
+.add-todo-container button {
+    height: 42px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
